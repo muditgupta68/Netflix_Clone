@@ -5,6 +5,7 @@ import requests from "../requests";
 import instance from "../axios";
 import MovieRow from "./MovieRow";
 import Banner from "./Banner";
+import Navbar from "./Navbar";
 
 const API_KEY = "750f3226723243bd6b8c630e99748c05";
 let type = ["Adventure", "Romance", "Family", "Horror", "Drama"];
@@ -35,20 +36,19 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Banner fetch={requests.fetchOriginals} />
-        <Row title="Trending" fetch={requests.fetchTrending} poster={true} />
-        <Row title="Top Rated" fetch={requests.fetchTopRated} />
-        <Row title="Popular" fetch={requests.fetchPopular} />
-        {type.map((item, index) => (
-          <MovieRow
-            title={item}
-            key={index}
-            genre={genre_id[index]}
-            api={API_KEY}
-          />
-        ))}
-      </header>
+      <Navbar />
+      <Banner fetch={requests.fetchOriginals} />
+      <Row title="Trending" fetch={requests.fetchTrending} poster={true} />
+      <Row title="Top Rated" fetch={requests.fetchTopRated} />
+      <Row title="Popular" fetch={requests.fetchPopular} />
+      {type.map((item, index) => (
+        <MovieRow
+          title={item}
+          key={index}
+          genre={genre_id[index]}
+          api={API_KEY}
+        />
+      ))}
     </div>
   );
 }
