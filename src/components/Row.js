@@ -15,7 +15,6 @@ function Row({ title, fetch, poster }) {
     async function fetchData() {
       const result = await axios.get(fetch);
       setMovies(result.data.results);
-      console.log(result.data.results);
       return result;
     }
     fetchData();
@@ -25,7 +24,6 @@ function Row({ title, fetch, poster }) {
     height: "390",
     width: "100%",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
   };
@@ -64,7 +62,9 @@ function Row({ title, fetch, poster }) {
 }
 
 Row.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  fetch: PropTypes.string.isRequired,
+  poster: PropTypes.bool.isRequired,
 };
 
 export default Row;

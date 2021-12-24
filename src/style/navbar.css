@@ -17,16 +17,21 @@
 }
 
 .netflix_Logo {
-  width: 90px;
+  width: 8.375rem;
   object-fit: contain;
   cursor: pointer;
   position: fixed;
   left: 10px;
 }
 .avatar_logo {
-  width: 2.5rem;
+  width: 2.475rem;
   object-fit: contain;
-  cursor: pointer;
   position: fixed;
-  right: 10px;
+  right: 9.1px;
+}
+
+@media screen and (max-width: 450px) {
+  .netflix_Logo {
+    width: 5.375rem;
+  }
 }

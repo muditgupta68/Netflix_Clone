@@ -5,17 +5,19 @@
 }
 .row h1 {
   margin: 10px 20px;
+  font-family: "Lobster", cursive;
 }
 .row_poster {
   max-height: 140px;
   object-fit: contain;
   margin: 25px 24px 35px 10.5px;
   transition: all 0.35s ease-in;
+  border: 2px solid #222;
+  border-radius: 5px;
 }
 
 .row_poster:hover {
   transform: scale(1.15);
-  cursor: pointer;
 }
 
 .row_drive {
@@ -37,5 +39,25 @@
 
 .row_poster_large:hover {
   transform: scale(1.2);
-  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .row_poster {
+    max-height: 100px;
+  }
+  .row_poster_large {
+    max-height: 220px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .row_poster {
+    max-height: 60px;
+  }
+  .row_poster_large {
+    max-height: 150px;
+  }
+  .row h1 {
+    font-size: 23px;
+  }
 }

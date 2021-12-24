@@ -3,23 +3,47 @@ import PropTypes from "prop-types";
 import axios from "../axios";
 import img_base from "../requests";
 import "../style/banner.css";
+import YouTube from "react-youtube";
+import movieTrailer from "movie-trailer";
 
 function Banner({ fetch }) {
-  const [movies, setMovies] = useState("working");
+  const [movies, setMovies] = useState("");
+  const [trailer_url, setTrailer] = useState("");
 
   useEffect(() => {
     const dataFetch = async () => {
       let rqst = await axios.get(fetch);
       setMovies(
-        rqst?.data.results[
-          Math.floor(Math.random() * rqst.data.results.length - 1)
-        ]
+        rqst?.data.results[Math.floor(Math.random() * rqst.data.results.length)]
       );
-      return rqst;
+      return 0;
     };
     dataFetch();
   }, [fetch]);
 
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+  let handleClick = (movies) => {
+    console.log(movies);
+    if (trailer_url) {
+      setTrailer("");
+    } else {
+      movieTrailer(movies?.name || movies?.title || movies?.original_name || "")
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailer(urlParams.get("v"));
+          console.log(urlParams.get("v"));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
   return (
     <header
       className="outer_banner"
@@ -31,11 +55,16 @@ function Banner({ fetch }) {
     >
       <div className="banner_content">
         <h1 className="banner_title">
-          {movies?.original_name || movies?.name || movies?.title}
+          {movies?.name || movies?.original_name || movies?.title}
         </h1>
 
         <div className="button_container">
-          <button className="button_containers">Play</button>
+          <button
+            className="button_containers"
+            onClick={() => handleClick(movies)}
+          >
+            Play
+          </button>
           <button className="button_containers">My List</button>
         </div>
         <h2 className="description">
@@ -45,10 +74,13 @@ function Banner({ fetch }) {
         </h2>
       </div>
       <div className="banner_fade"></div>
+      {trailer_url && <YouTube videoId={trailer_url} opts={opts} />}
     </header>
   );
 }
 
-Banner.propTypes = {};
+Banner.propTypes = {
+  fetch: PropTypes.string.isRequired,
+};
 
 export default Banner;

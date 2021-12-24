@@ -26,7 +26,6 @@ function MovieRow({ title, genre, api }) {
     height: "390",
     width: "100%",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
   };
@@ -64,6 +63,10 @@ function MovieRow({ title, genre, api }) {
   );
 }
 
-MovieRow.propTypes = {};
+MovieRow.propTypes = {
+  api: PropTypes.string.isRequired,
+  genre: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default MovieRow;
