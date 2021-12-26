@@ -52,7 +52,7 @@
 
 @media screen and (max-width: 450px) {
   .row_poster {
-    max-height: 60px;
+    max-height: 90px;
   }
   .row_poster_large {
     max-height: 150px;

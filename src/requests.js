@@ -4,7 +4,6 @@ let requests = {
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
   fetchTrending: `/trending/all/week?api_key=${API_KEY}`,
   fetchPopular: `/movie/popular?api_key=${API_KEY}&language=en-US`,
-  fetchOriginals: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_networks=213`,
   img_base: "https://image.tmdb.org/t/p/original/",
 };
 export default requests;

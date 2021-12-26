@@ -50,9 +50,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Banner fetch={requests.fetchOriginals} />
-      <Row title="Originals" fetch={requests.fetchOriginals} poster={true} />
-      <Row title="Trending" fetch={requests.fetchTrending} />
+      <Banner fetch={requests.fetchTrending} />
+      <Row title="Trending" fetch={requests.fetchTrending} poster={true} />
       <Row title="Top Rated" fetch={requests.fetchTopRated} />
       <Row title="Popular" fetch={requests.fetchPopular} />
       {type.map((item, index) => (
