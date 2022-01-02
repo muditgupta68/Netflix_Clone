@@ -29,32 +29,6 @@ Company named netflix for streaming movies and tv shows/series miniature clone u
 - I also got opportunity to explore Context API concept which I believe is very much essential for every developer. 
 
 
-## 📍 API Reference
-
-#### Get top-rated movie items
-
-```http
-  `GET /movie/top_rated?api_key=${API_KEY}&language=en-US`
-```
-#### Get trending movie items
-
-```http
-  `GET /trending/all/week?api_key=${API_KEY}`
-```
-#### Get Popular movie items
-
-```http
-  `GET /movie/popular?api_key=${API_KEY}&language=en-US`
-```
-### For all the constraints will remain same which is :
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. (Your API key) |
-
-For more visit [TMDB DOCS](https://developers.themoviedb.org/3)
-
-
-
 ## 📕 Documentation Ref
 
 [ReactJS](https://linktodocumentation) : Javascript Library for SPA web applications.
